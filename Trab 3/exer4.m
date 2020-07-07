@@ -39,7 +39,7 @@ while 1
         if (i ~= 200)
             Hy(n, i) = Da * Hy(n - 1, i) + Db * (Ez(n - 1, i + 1) - Ez(n - 1, i));
         else
-            Hy(n, i) = Hy(n, i - 1);
+            Hy(n, i) = 0;
         end
     end
     
@@ -47,15 +47,14 @@ while 1
        Ez(n, i) = Ca * Ez(n - 1, i) + Cb * (Hy(n, i) - Hy(n, i - 1));
     end
     
-    Ez(n, 200) = 0;
     Ez(n, 1) = us(n);
     
     plot(ax1, x, Ez(n, :))
     axis([1 200 -1.2 1.2])
     
     plot(ax2, x, Hy(n, :))
-    axis(ax1, [1 200 -1.2 1.2])
-    axis(ax2, [1 200 -.008 .002])
+    axis(ax1, [1 200 -0.2 2.2])
+    axis(ax2, [1 200 -.005 .005])
     
     pause(.01);
     
