@@ -64,9 +64,19 @@ while 1
     Ez(n, 1) = us(n);
     Ez1(n, 1) = us(n);
     
-    plot(ax1, x, Ez(n, :), '-', x, Ez1(n, :), '--')
+    plot(ax1, x, Ez(n, :), 'b-', x, Ez1(n, :), 'r--', [10 30], [-.9 -.9], 'r--', [10 30], [-.5 -.5], 'b-')
     
-    plot(ax2, x, Hy(n, :), '-', x, Hy1(n, :), '--')
+    plot(ax2, x, Hy(n, :), 'b-', x, Hy1(n, :), 'r--', [10 30], [-.007 -.007], 'r--', [10 30], [-.005 -.005], 'b-')
+    
+    text(ax1, 31, -.49, 'dt = dx/c')
+    text(ax1, 31, -.89, 'dt = 0.99dx/c')
+    text(ax2, 31, -.0049, 'dt = dx/c')
+    text(ax2, 31, -.0069, 'dt = 0.99dx/c')
+    
+    xlabel(ax1, 'Grid i coordinate');
+    ylabel(ax1, 'Ez');
+    xlabel(ax2, 'Grid i coordinate')
+    ylabel(ax2, 'Hy');
     axis(ax1, [1 200 -1.2 1.2]);
     axis(ax2, [1 200 -.008 .002])
     
@@ -74,7 +84,46 @@ while 1
     
     n = n + 1;
     
-    if (n == 600)
+    if (n == 380)
+        pause(1);
         break;
     end
 end
+
+ax1 = subplot(2, 2, 1);
+ax2 = subplot(2, 2, 2);
+ax3 = subplot(2, 2, 3);
+ax4 = subplot(2, 2, 4);
+
+plot(ax1, x, Ez(180, :), 'b-', x, Ez1(180, :), 'r--', [10 30], [-.9 -.9], 'r--', [10 30], [-.5 -.5], 'b-')
+plot(ax2, x, Hy(180, :), 'b-', x, Hy1(180, :), 'r--', [10 30], [-.007 -.007], 'r--', [10 30], [-.005 -.005], 'b-')
+plot(ax3, x, Ez(340, :), 'b-', x, Ez1(340, :), 'r--', [10 30], [-.9 -.9], 'r--', [10 30], [-.5 -.5], 'b-')
+plot(ax4, x, Hy(340, :), 'b-', x, Hy1(340, :), 'r--', [10 30], [-.007 -.007], 'r--', [10 30], [-.005 -.005], 'b-')
+
+text(ax1, 31, -.49, 'dt = dx/c')
+text(ax1, 31, -.89, 'dt = 0.99dx/c')
+text(ax2, 31, -.0049, 'dt = dx/c')
+text(ax2, 31, -.0069, 'dt = 0.99dx/c')
+text(ax3, 31, -.49, 'dt = dx/c')
+text(ax3, 31, -.89, 'dt = 0.99dx/c')
+text(ax4, 31, -.0049, 'dt = dx/c')
+text(ax4, 31, -.0069, 'dt = 0.99dx/c')
+
+axis(ax1, [1 200 -1.2 1.2])
+axis(ax2, [1 200 -.008 .002])
+axis(ax3, [1 200 -1.2 1.2])
+axis(ax4, [1 200 -.008 .002])
+
+title(ax1, 'n = 180')
+title(ax2, 'n = 180')
+title(ax3, 'n = 340')
+title(ax4, 'n = 340')
+
+xlabel(ax1, 'Grid i coordinate');
+ylabel(ax1, 'Ez');
+xlabel(ax2, 'Grid i coordinate')
+ylabel(ax2, 'Hy');
+xlabel(ax3, 'Grid i coordinate');
+ylabel(ax3, 'Ez');
+xlabel(ax4, 'Grid i coordinate')
+ylabel(ax4, 'Hy');

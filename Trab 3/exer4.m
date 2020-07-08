@@ -50,9 +50,13 @@ while 1
     Ez(n, 1) = us(n);
     
     plot(ax1, x, Ez(n, :))
-    axis([1 200 -1.2 1.2])
     
     plot(ax2, x, Hy(n, :))
+    
+    xlabel(ax1, 'Grid i coordinate');
+    ylabel(ax1, 'Ez');
+    xlabel(ax2, 'Grid i coordinate')
+    ylabel(ax2, 'Hy');
     axis(ax1, [1 200 -0.2 2.2])
     axis(ax2, [1 200 -.005 .005])
     
@@ -61,6 +65,48 @@ while 1
     n = n + 1;
     
     if (n == 400)
+        pause(1);
         break;
     end
 end
+
+ax1 = subplot(3, 2, 1);
+ax2 = subplot(3, 2, 2);
+ax3 = subplot(3, 2, 3);
+ax4 = subplot(3, 2, 4);
+ax5 = subplot(3, 2, 5);
+ax6 = subplot(3, 2, 6);
+
+plot(ax1, x, Ez(210, :))
+plot(ax2, x, Hy(210, :))
+plot(ax3, x, Ez(260, :))
+plot(ax4, x, Hy(260, :))
+plot(ax5, x, Ez(310, :))
+plot(ax6, x, Hy(310, :))
+
+axis(ax1, [1 200 -0.2 2.2])
+axis(ax2, [1 200 -.005 .005])
+axis(ax3, [1 200 -0.2 2.2])
+axis(ax4, [1 200 -.005 .005])
+axis(ax5, [1 200 -0.2 2.2])
+axis(ax6, [1 200 -.005 .005])
+
+title(ax1, 'n = 210')
+title(ax2, 'n = 210')
+title(ax3, 'n = 260')
+title(ax4, 'n = 260')
+title(ax5, 'n = 310')
+title(ax6, 'n = 310')
+
+xlabel(ax1, 'Grid i coordinate');
+ylabel(ax1, 'Ez');
+xlabel(ax2, 'Grid i coordinate')
+ylabel(ax2, 'Hy');
+xlabel(ax3, 'Grid i coordinate');
+ylabel(ax3, 'Ez');
+xlabel(ax4, 'Grid i coordinate')
+ylabel(ax4, 'Hy');
+xlabel(ax5, 'Grid i coordinate');
+ylabel(ax5, 'Ez');
+xlabel(ax6, 'Grid i coordinate')
+ylabel(ax6, 'Hy');

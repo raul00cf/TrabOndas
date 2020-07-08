@@ -25,11 +25,17 @@ while 1
     end
     
     if (n == 220)
-        plot(x, u(200, :), 'k-', x, u(210, :), 'k:', x, u(220, :), 'k--')
+        
+        plot(x, u(200, :), 'k-', x, u(210, :), 'k:', x, u(220, :), 'k--', [30 50], [.65 .65], 'k--', [30 50], [.8 .8], 'k:', [30 50], [.95 .95], 'k-')
+        
+        text(52, 0.96, 'n = 200')
+        text(52, 0.81, 'n = 210')
+        text(52, 0.66, 'n = 220')
+        
         xlabel('Grid i coordinate')
         ylabel('Wavefunction u(i)')
         xticks([0 50 100 150 200])
-        legend({'n = 200', 'n = 210', 'n = 220'}, 'Location', 'northwest')
+        
     
         axis([0 220 -0.2 1.2])
         pause(1);

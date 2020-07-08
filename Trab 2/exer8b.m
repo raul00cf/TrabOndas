@@ -39,12 +39,20 @@ while 1
     xlabel('Grid i coordinate')
     ylabel('Wavefunction u(i)')
     xticks([0 50 100 150 200])
-    legend({'S = 1.0', 'S = 0.5'}, 'Location', 'northwest')
     
     axis([0 200 -0.2 1.2])
     
     if (n == 190 / dx)
         if (n1 >= (160 / dx) * S1)
+            plot(x, u(n, :), 'k:', x / S1, u1(n1, :), 'k-', [20 40], [0.8 0.8], 'k-', [20 40],[1 1], 'k:')
+            xlabel('Grid i coordinate')
+            ylabel('Wavefunction u(i)')
+            xticks([0 50 100 150 200])
+
+            axis([0 200 -0.2 1.2])
+            
+            text(41, 0.81, 'S = 0.5')
+            text(41, 1.01, 'S = 1.0')
             pause(1);
             break;
         else

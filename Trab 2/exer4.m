@@ -11,7 +11,7 @@ Phiim = 1 + (1 / S)^2*(cos((2 * pi * S) ./ Nim) - 1);
 alpha = - Phiim - sqrt(Phiim.^2 - 1);
 alphaln = log(alpha);
 alp = cat(2, -alphaln, zeros(1, size(Nreal, 2)) - 2);
-[AX, H1, H2] = plotyy(N, alp, N, v/c);
+[AX, H1, H2] = plotyy(N, real(alp), N, real(v/c));
 
 text(5.5, 3.5, 'Numerical phase velocity');
 text(3.25, 0.9, 'Attenuation constant');
